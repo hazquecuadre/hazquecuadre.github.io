@@ -1,26 +1,391 @@
-￼
-￼
-HERRAMIENTA GRATUITA · CUADRE
-¿Cuánto ganaste de verdad en tu último proyecto?
-Haz la cuenta completa aquí mismo — la que incluye lo que nadie cotiza. 7 números, 60 segundos, sin registrarte.
-1 · LO QUE COBRASTE POR EL PROYECTO
-Sin IVA. El monto del contrato o cotización.
-2 · LO QUE GASTASTE EN MATERIALES
-Todo el material del proyecto.
-3 · LO QUE PAGASTE DE MANO DE OBRA
-Raya, destajos, subcontratos.
-4 · OTROS GASTOS DIRECTOS DEL PROYECTO
-Fletes, renta de equipo, viáticos, permisos… lo que se fue directo a esta obra.
-5 · TU GASTO FIJO MENSUAL
-Lo que tu negocio gasta al mes exista o no proyecto: renta, camioneta, teléfono, contador, tu sueldo.
-6 · SEMANAS QUE TE TOMÓ EL PROYECTO
-De arranque a entrega.
-7 · LA UTILIDAD QUE CREÍAS HABER GANADO (%)
-El porcentaje que traías en la cabeza al cotizar.
-Hacer la cuenta completa
-¿No tienes un dato exacto? Pon tu mejor estimado — la cuenta completa funciona con números gruesos. Ver con un ejemplo
-Sin trucos: la cuenta se hace aquí en tu teléfono y no guardamos tus números. Son tuyos.
-￼
-Conoce Cuadre
-contacto@hazquecuadre.com
-Aviso de privacidad
+￼<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Utilidad Real — gratis, sin registro | Cuadre</title>
+<meta name="description" content="¿Cuánto ganaste de verdad en tu último proyecto? Haz la cuenta completa aquí mismo: 7 números, 60 segundos, sin registrarte. La calculadora gratuita de Cuadre.">
+<meta property="og:title" content="¿Cuánto ganaste de verdad? Haz la cuenta completa aquí.">
+<meta property="og:description" content="7 números, 60 segundos, sin registrarte. Descubre tu utilidad real — la que incluye lo que nadie cotiza.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Meta Pixel — CUADRE -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2051416758821530');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2051416758821530&ev=PageView&noscript=1"
+/></noscript>
+<!-- Fin Meta Pixel -->
+<style>
+  :root{
+    --crema:#EDE7DD; --marfil:#F7F3EB; --tinta:#221C18;
+    --piedra:#6F675E; --piedra-clara:#8C8276; --borde:#E4DDD0;
+    --terracota:#B26B43; --terracota-osc:#955A38;
+    --salvia:#6E8162; --salvia-osc:#5D6D53; --oxido:#A74D3F;
+    --ambar-osc:#816431;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Mulish',-apple-system,'Helvetica Neue',sans-serif;
+    background:var(--crema); color:var(--tinta); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:620px;margin:0 auto;padding:0 22px}
+  .marca{display:flex;align-items:center;gap:10px;padding:20px 0}
+  .marca img.iso{height:26px;width:auto;display:block}
+  .marca img.logo{height:17px;width:auto;display:block}
+
+  .eyebrow{
+    font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--terracota-osc);margin-bottom:14px;
+  }
+  h1{
+    font-size:clamp(30px,7vw,42px);font-weight:900;letter-spacing:-.02em;
+    line-height:1.12;margin-bottom:14px;
+  }
+  .sub{font-size:16.5px;margin-bottom:26px}
+
+  .caja{
+    background:var(--marfil);border:1.5px solid var(--borde);border-radius:18px;
+    padding:26px 22px;margin-bottom:16px;
+  }
+  .campo{margin-bottom:16px}
+  label{
+    display:block;font-size:13px;font-weight:800;letter-spacing:.03em;
+    text-transform:uppercase;color:var(--tinta);margin-bottom:5px;
+  }
+  label small{
+    display:block;font-weight:600;font-size:12px;color:var(--piedra);
+    text-transform:none;letter-spacing:0;margin-top:1px;
+  }
+  input[type="number"]{
+    width:100%;font-family:inherit;font-size:17px;color:var(--tinta);
+    background:#fff;border:1.5px solid var(--borde);border-radius:10px;
+    padding:12px 14px;appearance:none;-webkit-appearance:none;
+    font-variant-numeric:tabular-nums;
+  }
+  input[type="number"]:focus{outline:none;border-color:var(--terracota-osc)}
+  input.falta{border-color:var(--oxido)}
+
+  .btn{
+    display:inline-block;width:100%;background:var(--terracota-osc);color:var(--marfil);
+    font-family:inherit;font-size:16.5px;font-weight:800;text-align:center;
+    padding:15px 24px;border-radius:12px;border:none;cursor:pointer;
+    transition:background .15s ease;
+  }
+  .btn:hover{background:var(--terracota)}
+  .liga{
+    background:none;border:none;font-family:inherit;font-size:13.5px;font-weight:700;
+    color:var(--terracota-osc);cursor:pointer;text-decoration:underline;
+    text-underline-offset:3px;padding:0;
+  }
+  .nota{font-size:13px;color:var(--piedra);margin-top:12px}
+
+  /* Resultado */
+  #resultado{display:none;margin-top:8px}
+  .veredicto{border-radius:18px;padding:26px 22px;color:var(--marfil);margin-bottom:14px}
+  .veredicto.malo{background:var(--oxido)}
+  .veredicto.regular{background:var(--ambar-osc)}
+  .veredicto.bueno{background:var(--salvia-osc)}
+  .veredicto .chico{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.85;margin-bottom:8px}
+  .veredicto .numero{font-size:clamp(38px,10vw,54px);font-weight:900;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+  .veredicto .pct{font-size:16px;font-weight:800;margin-top:4px}
+  .veredicto p.texto{font-size:15px;margin-top:14px;opacity:.95}
+
+  .desglose{background:var(--marfil);border:1.5px solid var(--borde);border-radius:18px;padding:22px;margin-bottom:14px}
+  .desglose h3{font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--piedra);margin-bottom:12px}
+  .linea{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;padding:6px 0;border-top:1px solid var(--borde)}
+  .linea:first-of-type{border-top:none}
+  .linea span:last-child{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+  .linea.total{font-weight:800;border-top:2px solid var(--tinta)}
+  .linea .resta{color:var(--oxido)}
+
+  .leccion{font-size:13.5px;color:var(--piedra);margin:0 4px 20px}
+  .leccion strong{color:var(--tinta)}
+
+  /* Puertas post-resultado */
+  .puerta{background:var(--tinta);color:var(--crema);border-radius:18px;padding:26px 22px;margin-bottom:14px}
+  .puerta h2{font-size:21px;font-weight:900;letter-spacing:-.01em;margin-bottom:6px}
+  .puerta p.lead{font-size:14.5px;opacity:.85;margin-bottom:18px}
+  .puerta input[type="email"]{
+    width:100%;font-family:inherit;font-size:16px;color:var(--tinta);
+    background:var(--marfil);border:1.5px solid transparent;border-radius:10px;
+    padding:13px 14px;appearance:none;-webkit-appearance:none;
+  }
+  .puerta input[type="email"]:focus{outline:none;border-color:var(--terracota)}
+  .puerta .btn{margin-top:12px;background:var(--terracota)}
+  .puerta .btn:hover{background:var(--terracota-osc)}
+  .puerta .micro{font-size:12.5px;opacity:.7;margin-top:10px}
+  .exito{background:var(--salvia-osc);color:var(--marfil);border-radius:18px;padding:24px 22px;margin-bottom:14px}
+  .exito h3{font-size:20px;font-weight:900;margin-bottom:6px}
+  .exito p{font-size:14.5px;opacity:.95}
+  .ml-error input{border-color:var(--oxido)!important}
+
+  .confianza{font-size:13px;color:var(--piedra);margin:16px 0 48px}
+
+  footer{background:var(--tinta);color:var(--crema);padding:36px 0}
+  footer img{height:34px;width:auto;display:block;margin-bottom:12px}
+  footer a{font-size:13.5px;color:var(--piedra-clara);text-decoration:none}
+  footer a:hover{color:var(--crema)}
+  .footlinks{display:flex;flex-wrap:wrap;gap:6px 18px}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px}
+  .ml-form-embedSubmitLoad:after{
+    content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;
+    border:4px solid var(--marfil);border-color:var(--marfil) var(--marfil) var(--marfil) transparent;
+    animation:girar 1.2s linear infinite;
+  }
+  @keyframes girar{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="marca"><img class="iso" src="../isotipo.png" alt=""><img class="logo" src="../logotipo-tinta.png" alt="Cuadre"></div>
+</div>
+
+<main class="wrap" style="padding-top:20px">
+  <div class="eyebrow">Herramienta gratuita · Cuadre</div>
+  <h1>¿Cuánto ganaste de verdad en tu último proyecto?</h1>
+  <p class="sub">Haz la <strong>cuenta completa</strong> aquí mismo — la que incluye lo que nadie cotiza. 7 números, 60 segundos, <strong>sin registrarte.</strong></p>
+
+  <div class="caja">
+    <div class="campo">
+      <label for="c-cobrado">1 · Lo que cobraste por el proyecto <small>Sin IVA. El monto del contrato o cotización.</small></label>
+      <input id="c-cobrado" type="number" inputmode="decimal" min="0" placeholder="480,000">
+    </div>
+    <div class="campo">
+      <label for="c-materiales">2 · Lo que gastaste en materiales <small>Todo el material del proyecto.</small></label>
+      <input id="c-materiales" type="number" inputmode="decimal" min="0" placeholder="212,000">
+    </div>
+    <div class="campo">
+      <label for="c-manoobra">3 · Lo que pagaste de mano de obra <small>Raya, destajos, subcontratos.</small></label>
+      <input id="c-manoobra" type="number" inputmode="decimal" min="0" placeholder="118,000">
+    </div>
+    <div class="campo">
+      <label for="c-otros">4 · Otros gastos directos del proyecto <small>Fletes, renta de equipo, viáticos, permisos… lo que se fue directo a esta obra.</small></label>
+      <input id="c-otros" type="number" inputmode="decimal" min="0" placeholder="38,000">
+    </div>
+    <div class="campo">
+      <label for="c-fijo">5 · Tu gasto fijo mensual <small>Lo que tu negocio gasta al mes exista o no proyecto: renta, camioneta, teléfono, contador, tu sueldo.</small></label>
+      <input id="c-fijo" type="number" inputmode="decimal" min="0" placeholder="35,000">
+    </div>
+    <div class="campo">
+      <label for="c-semanas">6 · Semanas que te tomó el proyecto <small>De arranque a entrega.</small></label>
+      <input id="c-semanas" type="number" inputmode="decimal" min="0.5" step="0.5" placeholder="6">
+    </div>
+    <div class="campo">
+      <label for="c-creido">7 · La utilidad que creías haber ganado (%) <small>El porcentaje que traías en la cabeza al cotizar.</small></label>
+      <input id="c-creido" type="number" inputmode="decimal" min="0" max="95" placeholder="15">
+    </div>
+
+    <button class="btn" id="btnCalcular" type="button">Hacer la cuenta completa</button>
+    <p class="nota">¿No tienes un dato exacto? Pon tu mejor estimado — la cuenta completa funciona con números gruesos. <button class="liga" id="btnEjemplo" type="button">Ver con un ejemplo</button></p>
+  </div>
+
+  <!-- RESULTADO -->
+  <div id="resultado">
+    <div class="veredicto" id="veredicto">
+      <div class="chico" id="v-etiqueta">Tu utilidad real</div>
+      <div class="numero" id="v-monto">$0</div>
+      <div class="pct" id="v-pct"></div>
+      <p class="texto" id="v-texto"></p>
+    </div>
+
+    <div class="desglose">
+      <h3>La cuenta completa</h3>
+      <div class="linea"><span>Cobraste</span><span id="d-cobrado"></span></div>
+      <div class="linea"><span class="resta">− Materiales</span><span class="resta" id="d-materiales"></span></div>
+      <div class="linea"><span class="resta">− Mano de obra</span><span class="resta" id="d-manoobra"></span></div>
+      <div class="linea"><span class="resta">− Otros directos</span><span class="resta" id="d-otros"></span></div>
+      <div class="linea"><span class="resta">− Tu gasto fijo, prorrateado <small id="d-fijonota" style="display:block;font-weight:400;color:var(--piedra)"></small></span><span class="resta" id="d-fijo"></span></div>
+      <div class="linea total"><span>Te dejó</span><span id="d-utilidad"></span></div>
+    </div>
+
+    <p class="leccion" id="leccion"></p>
+
+    <!-- PUERTA: Excel + lista -->
+    <div id="mlb2-45669740" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45669740">
+      <div class="puerta row-form">
+        <h2>¿Te la quieres quedar?</h2>
+        <p class="lead">Te mandamos esta misma calculadora en Excel y Google Sheets, para que la corras con cada proyecto — y de paso quedas en la lista de espera de Cuadre, la app que hace esta cuenta sola. Los primeros 30 lugares salen de esa lista.</p>
+        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2614476/forms/197978450999379192/subscribe" data-code="" method="post" target="_blank">
+          <div class="ml-form-formContent">
+            <div class="ml-form-fieldRow ml-last-item">
+              <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                <label for="p-correo" style="color:var(--crema)">Correo</label>
+                <input id="p-correo" aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="ml-submit" value="1">
+          <div class="ml-form-embedSubmit">
+            <button type="submit" class="btn primary">Mándamela en Excel</button>
+            <button disabled="disabled" style="display:none" type="button" class="btn loading">
+              <div class="ml-form-embedSubmitLoad"></div>
+              <span class="sr-only">Enviando…</span>
+            </button>
+          </div>
+          <input type="hidden" name="anticsrf" value="true">
+        </form>
+        <p class="micro">Sin spam — solo la calculadora y los avisos que importan.</p>
+      </div>
+      <div class="exito row-success" style="display:none">
+        <h3>Listo — revisa tu correo.</h3>
+        <p>Te acaba de llegar la calculadora en Excel y Google Sheets. Si no la ves en un par de minutos, busca en promociones o spam. Y ya quedaste en la lista de espera de Cuadre — los primeros lugares salen de ahí.</p>
+      </div>
+    </div>
+
+    <div class="caja" style="text-align:center">
+      <p style="font-size:15px;margin-bottom:10px"><strong>Cuadre</strong> hace esta cuenta sola, en cada proyecto, mientras trabajas.</p>
+      <a class="liga" href="https://hazquecuadre.com/" style="font-size:15px">Conoce Cuadre →</a>
+    </div>
+  </div>
+
+  <p class="confianza">Sin trucos: la cuenta se hace aquí en tu teléfono y no guardamos tus números. Son tuyos.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="../isotipo-sobretinta.png" alt="">
+    <div class="footlinks">
+      <a href="https://hazquecuadre.com/">Conoce Cuadre</a>
+      <a href="mailto:contacto@hazquecuadre.com">contacto@hazquecuadre.com</a>
+      <a href="https://hazquecuadre.github.io/cuadre-privacidad/">Aviso de privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var yaCalculo = false;
+
+  function num(id){
+    var v = document.getElementById(id).value;
+    if (v === "" || v === null) return null;
+    var n = parseFloat(String(v).replace(",", "."));
+    return isNaN(n) ? null : n;
+  }
+  function pesos(n){
+    return "$" + Math.round(n).toLocaleString("es-MX");
+  }
+  function pct(n){
+    return (Math.round(n * 10) / 10).toLocaleString("es-MX") + "%";
+  }
+
+  document.getElementById("btnEjemplo").addEventListener("click", function(){
+    document.getElementById("c-cobrado").value = 480000;
+    document.getElementById("c-materiales").value = 212000;
+    document.getElementById("c-manoobra").value = 118000;
+    document.getElementById("c-otros").value = 38000;
+    document.getElementById("c-fijo").value = 35000;
+    document.getElementById("c-semanas").value = 6;
+    document.getElementById("c-creido").value = 15;
+    calcular();
+  });
+
+  document.getElementById("btnCalcular").addEventListener("click", calcular);
+
+  function calcular(){
+    var ids = ["c-cobrado","c-materiales","c-manoobra","c-otros","c-fijo","c-semanas","c-creido"];
+    var falta = false;
+    ids.forEach(function(id){
+      var el = document.getElementById(id);
+      el.classList.remove("falta");
+      if (num(id) === null){ el.classList.add("falta"); falta = true; }
+    });
+    var cobrado = num("c-cobrado");
+    if (falta || !cobrado || cobrado <= 0){
+      if (cobrado !== null && cobrado <= 0) document.getElementById("c-cobrado").classList.add("falta");
+      return;
+    }
+
+    var materiales = num("c-materiales"), manoObra = num("c-manoobra"),
+        otros = num("c-otros"), fijo = num("c-fijo"),
+        semanas = Math.max(num("c-semanas"), 0.5), creidoPct = num("c-creido");
+
+    var directo = materiales + manoObra + otros;
+    var fijoProrrateado = fijo * (semanas / 4.33);
+    var costoTotal = directo + fijoProrrateado;
+    var utilidad = cobrado - costoTotal;
+    var pctReal = (utilidad / cobrado) * 100;
+    var creidoMonto = cobrado * (creidoPct / 100);
+    var diferencia = creidoMonto - utilidad;
+
+    // Desglose
+    document.getElementById("d-cobrado").textContent = pesos(cobrado);
+    document.getElementById("d-materiales").textContent = pesos(materiales);
+    document.getElementById("d-manoobra").textContent = pesos(manoObra);
+    document.getElementById("d-otros").textContent = pesos(otros);
+    document.getElementById("d-fijo").textContent = pesos(fijoProrrateado);
+    document.getElementById("d-fijonota").textContent =
+      pesos(fijo) + "/mes × " + semanas + " semanas";
+    document.getElementById("d-utilidad").textContent = pesos(utilidad);
+
+    // Veredicto
+    var v = document.getElementById("veredicto");
+    v.classList.remove("malo","regular","bueno");
+    document.getElementById("v-monto").textContent = pesos(utilidad);
+    document.getElementById("v-pct").textContent =
+      utilidad >= 0 ? pct(pctReal) + " real sobre lo cobrado" : "";
+
+    var texto;
+    if (utilidad < 0){
+      v.classList.add("malo");
+      texto = "Este proyecto te costó dinero: trabajaste y además pusiste de tu bolsa. No estás solo — sin la cuenta completa, esto pasa más seguido de lo que el gremio admite. Lo importante es que ahora lo sabes con número, no con sospecha.";
+    } else if (diferencia > cobrado * 0.01){
+      v.classList.add("regular");
+      texto = "Creías que habías ganado " + pesos(creidoMonto) + " (" + pct(creidoPct) + "). La cuenta completa dice " + pesos(utilidad) + " (" + pct(pctReal) + "). La diferencia — " + pesos(diferencia) + " — se fue en lo que nadie cotiza: el gasto fijo que tu negocio paga exista o no proyecto.";
+    } else {
+      v.classList.add("bueno");
+      texto = "Buenas noticias: la cuenta completa aguanta — ganaste lo que creías" + (diferencia < -cobrado * 0.01 ? " y un poco más" : "") + ". Eres de los pocos que traen el número bien puesto. La pregunta es cuánto tiempo te cuesta sacarlo a mano cada vez.";
+    }
+    document.getElementById("v-texto").textContent = texto;
+
+    // Lección: el mismo dinero, tres porcentajes
+    if (utilidad > 0 && directo > 0 && costoTotal > 0){
+      document.getElementById("leccion").innerHTML =
+        "<strong>Por cierto — \u00abel 15%\u2026 ¿sobre qué?\u00bb:</strong> tu misma utilidad de " + pesos(utilidad) +
+        " es <strong>" + pct((utilidad/cobrado)*100) + "</strong> sobre lo cobrado, <strong>" +
+        pct((utilidad/costoTotal)*100) + "</strong> sobre tu costo total y <strong>" +
+        pct((utilidad/directo)*100) + "</strong> sobre el costo directo. Mismo dinero, tres porcentajes — por eso \u00abgano el 15%\u00bb no significa nada hasta decir sobre qué.";
+    } else {
+      document.getElementById("leccion").textContent = "";
+    }
+
+    // Mostrar y avisar al pixel (una sola vez por sesión)
+    document.getElementById("resultado").style.display = "block";
+    document.getElementById("resultado").scrollIntoView({behavior:"smooth", block:"start"});
+    if (!yaCalculo && typeof fbq === "function"){
+      fbq("trackCustom", "CalculadoraUsada");
+      yaCalculo = true;
+    }
+  }
+
+  function ml_webform_success_45669740() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-45669740 .row-success').show();
+    $('.ml-subscribe-form-45669740 .row-form').hide();
+    if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>
+  fetch("https://assets.mailerlite.com/jsonp/2614476/forms/197978450999379192/takel")
+</script>
+
+</body>
+</html>
