@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cuadre — Cotiza tus proyectos con certeza y descubre si ganaste</title>
-<meta name="description" content="La app para armar presupuestos con precios unitarios, enviar cotizaciones profesionales y llevar el control económico de cada proyecto. Ya en el App Store para iPhone, iPad y Mac. 14 días gratis.">
+<title>Cuadre — Cotiza con certeza y descubre cuánto te dejó cada proyecto</title>
+<meta name="description" content="La app para contratistas: arma precios unitarios, manda cotizaciones profesionales en PDF y controla cuánto te deja cada obra. Ya en el App Store para iPhone, iPad y Mac. 14 días gratis.">
 <meta property="og:title" content="Cuadre — La certeza de tu número.">
-<meta property="og:description" content="Cotiza tus proyectos con certeza y descubre cuánto te dejó cada uno. Ya en el App Store para iPhone, iPad y Mac. 14 días gratis.">
+<meta property="og:description" content="Cotiza con certeza y descubre cuánto te dejó cada proyecto. Ya en el App Store para iPhone, iPad y Mac. 14 días gratis.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://hazquecuadre.com/">
+<link rel="icon" href="img/isotipo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --crema:#EDE7DD; --marfil:#F7F3EB; --tinta:#221C18;
-    --piedra:#6F675E; --piedra-clara:#8C8276; --borde:#E4DDD0;
+    --piedra:#6F675E; --piedra-clara:#9A9084; --borde:#E0D8CA;
     --terracota:#B26B43; --terracota-osc:#955A38;
     --salvia:#6E8162; --salvia-osc:#5D6D53; --oxido:#A74D3F;
   }
@@ -21,150 +24,159 @@
   html{scroll-behavior:smooth}
   body{
     font-family:'Mulish',-apple-system,'Helvetica Neue',sans-serif;
-    background:var(--crema); color:var(--tinta); line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+    background:var(--crema);color:var(--tinta);line-height:1.55;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
-  section{padding:64px 0}
+  img{max-width:100%;display:block}
 
-  .marca{display:flex;align-items:center;gap:10px}
-  .marca img.iso{height:26px;width:auto;display:block}
-  .marca img.logo{height:17px;width:auto;display:block}
-  .topbar{padding:20px 0}
+  /* ---- layout ---- */
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px;width:100%}
+  .narrow{max-width:680px}
+  .sec{padding:84px 0}
+  .s-crema{background:var(--crema)}
+  .s-marfil{background:var(--marfil)}
+  .s-tinta{background:var(--tinta);color:var(--crema)}
+  .s-salvia{background:var(--salvia);color:var(--marfil)}
+  .s-terra{background:var(--terracota);color:var(--marfil)}
 
-  .eyebrow{
-    font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--terracota-osc);margin-bottom:14px;
-  }
-  h1{
-    font-size:clamp(40px,9vw,60px);font-weight:900;letter-spacing:-.02em;
-    line-height:1.05;margin-bottom:20px;
-  }
-  .hero p.sub{font-size:18px;color:var(--tinta);margin-bottom:14px}
-  .plataformas{font-size:14px;font-weight:700;color:var(--piedra);margin-bottom:28px}
+  /* ---- tipografía ---- */
+  h1{font-size:clamp(42px,8.2vw,68px);font-weight:900;letter-spacing:-.025em;line-height:1.02}
+  h2{font-size:clamp(28px,5.4vw,42px);font-weight:900;letter-spacing:-.02em;line-height:1.1}
+  h3{font-size:clamp(21px,3.4vw,26px);font-weight:800;letter-spacing:-.01em;line-height:1.2}
+  .kicker{font-size:14px;font-weight:800;color:var(--terracota-osc);margin-bottom:18px}
+  .s-tinta .kicker,.s-terra .kicker,.s-salvia .kicker{color:inherit;opacity:.72}
+  .lead{font-size:clamp(17px,2.4vw,20px);line-height:1.6;color:var(--tinta);max-width:60ch}
+  .s-tinta .lead,.s-salvia .lead,.s-terra .lead{color:inherit;opacity:.9}
+  .muted{color:var(--piedra)}
+  .s-tinta .muted{color:var(--piedra-clara)}
 
+  /* ---- botones ---- */
   .btn{
-    display:inline-block;background:var(--terracota-osc);color:var(--marfil);
-    font-family:inherit;font-size:16px;font-weight:800;text-decoration:none;
-    padding:16px 28px;border-radius:12px;border:none;cursor:pointer;
-    transition:background .15s ease;
+    display:inline-flex;align-items:center;gap:10px;background:var(--tinta);color:var(--crema);
+    font:inherit;font-size:16px;font-weight:800;text-decoration:none;
+    padding:16px 26px;border-radius:13px;border:none;cursor:pointer;transition:transform .12s ease,background .15s ease;
   }
-  .btn:hover{background:var(--terracota)}
-  .micro{font-size:13px;color:var(--piedra);margin-top:12px}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.terra{background:var(--tinta)}
+  .s-terra .btn{background:var(--tinta);color:var(--crema)}
+  .btn.light{background:var(--marfil);color:var(--tinta)}
+  .btn .apple{width:17px;height:17px;flex:none}
+  .micro{font-size:13.5px;color:var(--piedra);margin-top:13px}
+  .s-terra .micro{color:var(--marfil);opacity:.85}
 
-  /* Problema — bloque oscuro, como el carrusel */
-  .oscuro{background:var(--tinta);color:var(--crema)}
-  .oscuro .eyebrow{color:var(--terracota)}
-  h2{font-size:clamp(26px,6vw,34px);font-weight:900;letter-spacing:-.015em;line-height:1.15;margin-bottom:10px}
-  .oscuro .intro-linea{font-size:17px;color:var(--crema);opacity:.85;margin-bottom:28px}
-  .prob{padding:18px 0;border-top:1px solid rgba(237,231,221,.16)}
-  .prob strong{display:block;font-size:17px;font-weight:800;margin-bottom:4px}
-  .prob p{font-size:15.5px;opacity:.8}
-  .remate{margin-top:28px;font-size:15.5px;color:var(--piedra-clara);font-style:italic}
+  /* ---- barra superior sticky ---- */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(237,231,221,.9);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--borde)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:13px;padding-bottom:13px}
+  .marca{display:flex;align-items:center;gap:9px}
+  .marca img{height:24px;width:auto}
+  .marca .wm{height:15px}
+  .nav .btn{padding:10px 18px;font-size:14.5px;border-radius:10px}
 
-  /* Producto */
-  .tarjeta{
-    background:var(--marfil);border:1.5px solid var(--borde);border-radius:16px;
-    padding:26px 24px;margin-bottom:16px;
-  }
-  .num{font-size:13px;font-weight:800;color:var(--terracota-osc);letter-spacing:.1em}
-  .tarjeta h3{font-size:22px;font-weight:900;letter-spacing:.02em;margin:4px 0 10px}
-  .tarjeta p{font-size:15.5px;color:var(--tinta)}
-
-  /* Capturas reales — vistazo */
-  .captura{
-    background:var(--marfil);border:1.5px solid var(--borde);border-radius:16px;
-    overflow:hidden;margin:14px 0 6px;
-  }
-  .captura .ventana{height:380px;overflow:hidden}
-  .captura img{width:100%;display:block;object-fit:cover;object-position:top}
-  .captura figcaption{
-    padding:12px 16px;font-size:14px;font-weight:800;color:var(--tinta);
-    border-top:1.5px solid var(--borde);
-  }
-  .captura figcaption span{display:block;font-weight:600;font-size:13px;color:var(--piedra)}
-
-  .estado{
-    margin-top:18px;padding-top:14px;border-top:1px solid rgba(247,243,235,.3);
-    font-size:14.5px;font-weight:800;
+  /* ---- hero ---- */
+  .hero{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+  .hero .plat{font-size:14px;font-weight:700;color:var(--piedra);margin:22px 0 2px}
+  .hero-cta{margin-top:26px}
+  .fono{background:var(--tinta);border-radius:34px;padding:9px;width:100%;max-width:300px;margin:0 auto}
+  .fono.claro{background:var(--marfil)}
+  .fono img{border-radius:26px;width:100%}
+  @media(min-width:860px){
+    .hero{grid-template-columns:1.05fr .95fr;gap:56px}
+    .hero .fono{max-width:316px;margin-left:auto}
   }
 
-  /* Cómo trabaja */
-  .punto{padding:14px 0;border-top:1px solid var(--borde)}
-  .punto:last-child{border-bottom:1px solid var(--borde)}
-  .punto strong{font-weight:800}
-  .punto span{color:var(--piedra)}
+  /* ---- problema ---- */
+  .prob{padding:20px 0;border-top:1px solid rgba(237,231,221,.16)}
+  .prob strong{display:block;font-size:18px;font-weight:800;margin-bottom:4px}
+  .prob p{font-size:16px;opacity:.82;max-width:60ch}
+  .remate{margin-top:30px;font-size:17px;color:var(--piedra-clara);font-weight:600}
 
-  /* Fundadores — bloque terracota, como el cierre del carrusel */
-  .fund{background:var(--terracota);color:var(--marfil)}
-  .fund .eyebrow{color:var(--marfil);opacity:.85}
-  .fund .treinta{font-size:clamp(64px,16vw,96px);font-weight:900;line-height:1;letter-spacing:-.03em;margin-bottom:6px}
-  .fund h2{margin-bottom:22px}
-  .fund h4{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:24px 0 10px;opacity:.9}
-  .fund li{list-style:none;font-size:15.5px;padding:7px 0;border-top:1px solid rgba(247,243,235,.25)}
-  .fund .btn{background:var(--tinta);color:var(--crema);margin-top:28px}
-  .fund .btn:hover{background:#3a322c}
+  /* ---- resumen 3 momentos ---- */
+  .momentos{display:grid;gap:30px;margin-top:38px}
+  @media(min-width:760px){.momentos{grid-template-columns:repeat(3,1fr);gap:34px}}
+  .mom .verbo{font-size:clamp(24px,4vw,30px);font-weight:900;letter-spacing:-.01em}
+  .mom .verbo b{color:var(--terracota-osc)}
+  .mom p{font-size:16px;color:var(--piedra);margin-top:8px;max-width:34ch}
 
-  /* Formulario */
-  #lista .caja{
-    background:var(--marfil);border:1.5px solid var(--borde);border-radius:18px;
-    padding:32px 26px;
+  /* ---- bloque de función (fila) ---- */
+  .fila{display:grid;grid-template-columns:1fr;gap:34px;align-items:center;margin-top:16px}
+  .fila .txt h3{margin-bottom:10px}
+  .fila .txt p{font-size:16.5px;max-width:52ch}
+  .s-tinta .fila .txt p{opacity:.88}
+  @media(min-width:800px){
+    .fila{grid-template-columns:300px 1fr;gap:54px}
+    .fila.rev{grid-template-columns:1fr 300px}
+    .fila.rev .media{order:2}
   }
-  #lista h2{margin-bottom:6px}
-  #lista .caja > p.lead{font-size:15px;color:var(--piedra);margin-bottom:24px}
-  #lista label{
-    display:block;font-size:13px;font-weight:800;letter-spacing:.04em;
-    text-transform:uppercase;color:var(--tinta);margin:0 0 6px;
-  }
-  #lista .ml-form-fieldRow{margin-bottom:18px}
-  #lista input, #lista select{
-    width:100%;font-family:inherit;font-size:16px;color:var(--tinta);
-    background:#fff;border:1.5px solid var(--borde);border-radius:10px;
-    padding:13px 14px;appearance:none;-webkit-appearance:none;
-  }
-  #lista select{
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23955A38' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;
-  }
-  #lista input:focus, #lista select:focus{outline:none;border-color:var(--terracota-osc)}
-  #lista .ml-form-embedSubmit{margin-top:6px}
-  #lista .ml-form-embedSubmit button{width:100%}
-  #lista .ml-error input, #lista .ml-error select{border-color:var(--oxido)!important}
-  .exito{
-    background:var(--salvia-osc);color:var(--marfil);border-radius:18px;padding:32px 26px;
-  }
-  .exito h3{font-size:24px;font-weight:900;margin-bottom:8px}
-  .exito p{font-size:15.5px;opacity:.95}
 
-  /* FAQ */
-  details{border-top:1px solid var(--borde);padding:16px 0}
+  /* ---- grid de mini funciones ---- */
+  .mini{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
+  @media(min-width:760px){.mini.tres{grid-template-columns:repeat(3,1fr)}}
+  .mini .fono{max-width:100%}
+  .mini figcaption{margin-top:14px}
+  .mini .t{font-size:16px;font-weight:800}
+  .mini .d{font-size:14px;color:var(--piedra);margin-top:3px;line-height:1.45}
+  .s-tinta .mini .d{color:var(--piedra-clara)}
+
+  /* ---- documento (PDF) ---- */
+  .doc{background:#fff;border:1px solid var(--borde);border-radius:14px;overflow:hidden;max-width:360px;margin:0 auto}
+  .doc img{width:100%}
+
+  /* ---- cómo trabaja ---- */
+  .valores{display:grid;gap:4px;margin-top:34px}
+  .valor{padding:20px 0;border-top:1px solid rgba(247,243,235,.28)}
+  .valor:last-child{border-bottom:1px solid rgba(247,243,235,.28)}
+  .valor strong{font-size:18px;font-weight:800;display:block;margin-bottom:3px}
+  .valor span{font-size:16px;opacity:.88}
+
+  /* ---- precio ---- */
+  .precio-grid{display:grid;gap:22px;margin-top:34px}
+  @media(min-width:680px){.precio-grid{grid-template-columns:1fr 1fr}}
+  .plan{background:rgba(247,243,235,.14);border:1px solid rgba(247,243,235,.3);border-radius:16px;padding:26px}
+  .plan .n{font-size:14px;font-weight:800;letter-spacing:.04em;opacity:.8}
+  .plan .precio{font-size:40px;font-weight:900;letter-spacing:-.02em;margin:6px 0 2px}
+  .plan .precio small{font-size:17px;font-weight:700;opacity:.75}
+  .plan .ahorro{font-size:14px;font-weight:700;opacity:.85}
+
+  /* ---- FAQ ---- */
+  details{border-top:1px solid var(--borde);padding:18px 0}
   details:last-of-type{border-bottom:1px solid var(--borde)}
-  summary{
-    font-size:16px;font-weight:800;cursor:pointer;list-style:none;
-    display:flex;justify-content:space-between;align-items:center;gap:12px;
-  }
+  summary{font-size:17px;font-weight:800;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:22px;font-weight:700;color:var(--terracota-osc);flex:none}
-  details[open] summary::after{content:"–"}
-  details p{font-size:15px;color:var(--piedra);padding-top:10px}
+  summary::after{content:"+";font-size:24px;font-weight:700;color:var(--terracota-osc);line-height:1}
+  details[open] summary::after{content:"\2013"}
+  details .resp{font-size:16px;color:var(--piedra);padding-top:12px;max-width:62ch}
+  details .resp a{color:var(--terracota-osc);font-weight:700}
 
-  /* Footer */
-  footer{background:var(--tinta);color:var(--crema);padding:56px 0}
-  .cierre{font-size:clamp(22px,5vw,28px);font-weight:900;letter-spacing:-.015em;margin-bottom:22px}
-  footer p, footer a{font-size:14px;color:var(--piedra-clara);text-decoration:none}
+  /* ---- formulario ---- */
+  .caja{background:var(--crema);border:1px solid var(--borde);border-radius:18px;padding:34px 28px;max-width:560px}
+  #lista h2{margin-bottom:6px}
+  #lista .caja>p.lead{font-size:15.5px;color:var(--piedra);margin-bottom:24px}
+  #lista label{display:block;font-size:13px;font-weight:800;letter-spacing:.03em;color:var(--tinta);margin:0 0 6px}
+  .ml-form-fieldRow{margin-bottom:18px}
+  #lista input,#lista select{width:100%;font:inherit;font-size:16px;color:var(--tinta);background:#fff;border:1.5px solid var(--borde);border-radius:11px;padding:13px 14px;appearance:none;-webkit-appearance:none}
+  #lista select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23955A38' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+  #lista input:focus,#lista select:focus{outline:2px solid var(--terracota-osc);outline-offset:1px;border-color:var(--terracota-osc)}
+  .ml-form-embedSubmit{margin-top:6px}
+  .ml-form-embedSubmit button{width:100%}
+  .ml-error input,.ml-error select{border-color:var(--oxido)!important}
+  .exito{background:var(--salvia-osc);color:var(--marfil);border-radius:18px;padding:34px 28px;max-width:560px}
+  .exito h3{font-size:24px;font-weight:900;margin-bottom:8px}
+  .exito p{font-size:16px;opacity:.95}
+
+  /* ---- footer ---- */
+  footer{background:var(--tinta);color:var(--crema);padding:60px 0}
+  footer .iso{height:40px;margin-bottom:18px}
+  .cierre{font-size:clamp(22px,4.5vw,30px);font-weight:900;letter-spacing:-.015em;margin-bottom:24px;max-width:18ch}
+  .footlinks{display:flex;flex-wrap:wrap;gap:8px 22px;margin-bottom:18px}
+  footer a{color:var(--piedra-clara);text-decoration:none;font-size:14.5px}
   footer a:hover{color:var(--crema)}
-  .footlinks{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:18px}
-  .copy{font-size:13px;opacity:.6}
+  .copy{font-size:13px;color:var(--piedra-clara);opacity:.7}
 
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
   .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px}
-  .ml-form-embedSubmitLoad:after{
-    content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;
-    border:4px solid var(--marfil);border-color:var(--marfil) var(--marfil) var(--marfil) transparent;
-    animation:girar 1.2s linear infinite;
-  }
-  @keyframes girar{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  .ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid var(--marfil);border-color:var(--marfil) var(--marfil) var(--marfil) transparent;animation:girar 1.2s linear infinite}
+  @keyframes girar{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 <!-- Meta Pixel — CUADRE -->
 <script>
@@ -180,115 +192,192 @@ fbq('init', '2051416758821530');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2051416758821530&ev=PageView&noscript=1"
-/></noscript>
+src="https://www.facebook.com/tr?id=2051416758821530&ev=PageView&noscript=1"/></noscript>
 <!-- Fin Meta Pixel -->
 </head>
 <body>
 
-<div class="wrap topbar"><div class="marca"><img class="iso" src="isotipo.png" alt=""><img class="logo" src="logotipo-tinta.png" alt="Cuadre"></div></div>
+<!-- NAV -->
+<div class="nav"><div class="wrap">
+  <div class="marca"><img src="img/isotipo.png" alt=""><img class="wm" src="img/logotipo-tinta.png" alt="Cuadre"></div>
+  <a class="btn" href="https://apps.apple.com/app/cuadre-obra-precios-unitarios/id6800192272" target="_blank" rel="noopener">Descargar</a>
+</div></div>
 
-<!-- 1 · HERO -->
-<header class="wrap hero" style="padding:40px 22px 72px">
-  <div class="eyebrow">Cuadre · Para quien cotiza, ejecuta y controla proyectos</div>
-  <h1>La certeza de tu número.</h1>
-  <p class="sub">Cuadre es la app para cotizar tus proyectos con certeza y saber cuánto te dejó cada uno. Armas tus precios con tus costos reales, mandas una cotización profesional en PDF, registras lo que entra y lo que sale — y cierras sabiendo, no suponiendo.</p>
-  <p class="plataformas">Ya en el App Store · iPhone, iPad y Mac</p>
-  <a class="btn" href="https://apps.apple.com/app/cuadre-obra-precios-unitarios/id6800192272" target="_blank" rel="noopener">Descárgala en el App Store</a>
-  <p class="micro">14 días de prueba gratis, con todo incluido. Cancelas cuando quieras.</p>
+<!-- HERO -->
+<header class="sec s-crema" style="padding-top:56px">
+  <div class="wrap hero">
+    <div>
+      <p class="kicker">Ya en el App Store · iPhone, iPad y Mac</p>
+      <h1>La certeza de tu número.</h1>
+      <p class="lead" style="margin-top:22px">Cuadre es la app para contratistas que cotizan, ejecutan y controlan proyectos. Armas tus precios con tus costos reales, mandas una cotización profesional en PDF, y cierras cada obra sabiendo cuánto te dejó — no suponiendo.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://apps.apple.com/app/cuadre-obra-precios-unitarios/id6800192272" target="_blank" rel="noopener">
+          <svg class="apple" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268c-.3-57 46.5-84.3 48.6-85.6-26.5-38.8-67.8-44.1-82.4-44.7-35.1-3.6-68.5 20.6-86.3 20.6-17.8 0-45.3-20.1-74.5-19.6-38.3.6-73.6 22.3-93.3 56.6-39.8 69-10.2 171.1 28.5 227.1 18.9 27.4 41.4 58.2 71 57 28.5-1.1 39.3-18.4 73.8-18.4s44.2 18.4 74.4 17.9c30.7-.5 50.2-27.9 69-55.4 21.7-31.6 30.6-62.2 31-63.8-.7-.3-59.5-22.8-59.8-90.3zM262.9 97.9c15.7-19 26.3-45.5 23.4-71.9-22.6.9-50 15.1-66.2 34-14.5 16.7-27.3 43.5-23.9 69.2 25.2 2 50.9-12.8 66.7-31.3z"/></svg>
+          Descárgala en el App Store
+        </a>
+        <p class="micro">14 días de prueba gratis, con todo incluido. Cancelas cuando quieras.</p>
+      </div>
+    </div>
+    <div class="media">
+      <div class="fono"><img src="img/p-inicio.jpg" alt="Pantalla de inicio de Cuadre: saldo de la semana y proyectos activos con su margen" loading="eager"></div>
+    </div>
+  </div>
 </header>
 
-<!-- 2 · EL PROBLEMA -->
-<section class="oscuro">
-  <div class="wrap">
-    <div class="eyebrow">Una pregunta, antes de empezar</div>
+<!-- PROBLEMA -->
+<section class="sec s-tinta">
+  <div class="wrap narrow">
     <h2>Sabes hacer tu trabajo. El problema es el número.</h2>
-    <p class="intro-linea">No estás solo — así trabajamos casi todos:</p>
-    <div class="prob">
-      <strong>El precio sale al tanteo.</strong>
-      <p>De multiplicar el material por dos, o del "más o menos así cobro". Y los errores no avisan.</p>
-    </div>
-    <div class="prob">
-      <strong>El dinero se registra a medias.</strong>
-      <p>Los gastos viven entre tickets, mensajes y una libreta. Al final, nadie junta las piezas.</p>
-    </div>
-    <div class="prob">
-      <strong>Y el resultado del proyecto, nadie lo junta nunca.</strong>
-      <p>¿Cuánto te dejó el último? Si la respuesta empieza con "yo creo que…", ese es exactamente el problema.</p>
-    </div>
+    <p class="lead muted" style="margin:14px 0 26px">No estás solo — así trabajamos casi todos:</p>
+    <div class="prob"><strong>El precio sale al tanteo.</strong><p>De multiplicar el material por dos, o del "más o menos así cobro". Y los errores no avisan.</p></div>
+    <div class="prob"><strong>El dinero se registra a medias.</strong><p>Los gastos viven entre tickets, mensajes y una libreta. Al final, nadie junta las piezas.</p></div>
+    <div class="prob"><strong>Y el resultado del proyecto, nadie lo junta nunca.</strong><p>¿Cuánto te dejó el último? Si la respuesta empieza con "yo creo que…", ese es exactamente el problema.</p></div>
     <p class="remate">No es descuido. Es que ninguna de tus herramientas está hecha para avisarte.</p>
   </div>
 </section>
 
-<!-- 3 · QUÉ ES CUADRE -->
-<section>
+<!-- RESUMEN: 3 MOMENTOS -->
+<section class="sec s-crema">
   <div class="wrap">
-    <div class="eyebrow">Qué es Cuadre</div>
-    <h2 style="margin-bottom:28px">Del precio a la utilidad, en un solo lugar.</h2>
-    <div class="tarjeta">
-      <div class="num">01</div>
-      <h3>COTIZA</h3>
-      <p>Arma tu catálogo de materiales y mano de obra (importa tu Excel de hoy — no empiezas de cero), construye tus precios unitarios como se hace en el oficio, y manda una cotización profesional en PDF con tu logo, tus condiciones y tu vigencia. Con los indirectos, la utilidad y el IVA bien puestos.</p>
+    <h2 class="narrow">Del precio a la utilidad, en un solo lugar.</h2>
+    <div class="momentos">
+      <div class="mom"><div class="verbo"><b>Cotiza</b> con tus números</div><p>Precios unitarios armados como en el oficio, y una cotización en PDF que te hace ver profesional.</p></div>
+      <div class="mom"><div class="verbo"><b>Controla</b> cada peso</div><p>Gastos, pagos, raya y avance — todo cae en su proyecto, solo, desde la obra.</p></div>
+      <div class="mom"><div class="verbo"><b>Descubre</b> si ganaste</div><p>Lo planeado contra lo real, insumo por insumo. Y al cerrar, el número que hoy no tienes.</p></div>
     </div>
-    <div class="tarjeta">
-      <div class="num">02</div>
-      <h3>CONTROLA</h3>
-      <p>Registra cada gasto en 20 segundos con la foto del ticket, lleva los pagos que recibes, la raya de la semana y los préstamos a tu gente. Todo cae en su proyecto, solo.</p>
-    </div>
-    <div class="tarjeta">
-      <div class="num">03</div>
-      <h3>DESCUBRE</h3>
-      <p>Compara lo que planeaste contra lo que de verdad gastaste y cobraste. Cobra por avance con estimaciones y reporte fotográfico. Y cuando el proyecto cierra, ve el número que hoy no tienes: cuánto te dejó.</p>
-    </div>
-
-    <div class="eyebrow" style="margin-top:20px">Un vistazo real</div>
-    <figure class="captura">
-      <div class="ventana"><img src="captura-pu.jpg" alt="Pantalla de Cuadre: tarjeta de precio unitario con insumos y costos" loading="lazy"></div>
-      <figcaption>Tu precio, armado con tus números.<span>Material, mano de obra, indirectos y utilidad — nada al tanteo.</span></figcaption>
-    </figure>
-    <figure class="captura">
-      <div class="ventana"><img src="captura-pdf.jpg" alt="Cotización en PDF generada con Cuadre, con logo, partidas y condiciones" loading="lazy"></div>
-      <figcaption>Y así lo recibe tu cliente.<span>Con tu logo, tus condiciones y tu número bien hecho.</span></figcaption>
-    </figure>
   </div>
 </section>
 
-<!-- 5 · CÓMO TRABAJA -->
-<section style="padding-top:0">
+<!-- COTIZA -->
+<section class="sec s-marfil">
   <div class="wrap">
-    <div class="eyebrow">Cómo trabaja</div>
-    <div class="punto"><strong>Te avisa, no te bloquea.</strong> <span>La app informa; la última palabra es tuya.</span></div>
-    <div class="punto"><strong>Tu número no se mueve solo.</strong> <span>Lo cotizado queda congelado; actualizar es una decisión, no un accidente.</span></div>
-    <div class="punto"><strong>De la obra a la oficina.</strong> <span>Capturas en el iPhone donde ocurre el gasto; revisas en iPad o Mac. Todo sincronizado.</span></div>
-    <div class="punto"><strong>Tus datos son tuyos.</strong> <span>Viven en tu propia cuenta de iCloud, no en nuestros servidores. Nosotros no los vemos.</span></div>
+    <p class="kicker">Cotiza</p>
+    <h2 class="narrow">Un precio bien hecho, no un tanteo.</h2>
+    <div class="fila" style="margin-top:40px">
+      <div class="media"><div class="fono"><img src="img/p-pu.jpg" alt="Tarjeta de precio unitario con material, mano de obra, herramienta y subcontrato" loading="lazy"></div></div>
+      <div class="txt">
+        <h3>Arma tus precios como en el oficio</h3>
+        <p>Construye cada precio unitario desde tu catálogo: material, mano de obra, herramienta y subcontrato. Con sus indirectos, financiamiento y utilidad — y el IVA bien puesto. El costo directo se calcula solo mientras capturas.</p>
+      </div>
+    </div>
+    <div class="mini">
+      <figure>
+        <div class="fono"><img src="img/p-import.jpg" alt="Vista previa de importación de un Excel con categorías y conceptos" loading="lazy"></div>
+        <figcaption><div class="t">Importa tu Excel</div><div class="d">No empiezas de cero: trae tu catálogo de hoy y detecta los que ya existen.</div></figcaption>
+      </figure>
+      <figure>
+        <div class="doc"><img src="img/p-pdf.jpg" alt="Cotización en PDF con logo, partidas, condiciones y total" loading="lazy"></div>
+        <figcaption><div class="t">Así lo recibe tu cliente</div><div class="d">Una cotización en PDF con tu logo, tus condiciones y tu vigencia.</div></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- 6 · YA VIENE -->
-<section class="fund">
+<!-- CONTROLA -->
+<section class="sec s-crema">
   <div class="wrap">
-    <div class="eyebrow">Ya está aquí</div>
-    <div class="treinta">14</div>
-    <h2>14 días gratis para probarla completa.</h2>
-    <p style="font-size:16px;margin-bottom:6px">CUADRE ya está en el App Store, para iPhone, iPad y Mac. Nació en Excel, se afinó en obras reales durante la beta, y hoy cotiza, controla y cierra proyectos de verdad. Descárgala y haz que cuadre tu siguiente número.</p>
-    <h4>Cómo funciona</h4>
-    <ul>
-      <li>14 días de prueba gratis, con todo incluido.</li>
-      <li>Después, plan mensual de $249 o anual de $1,999 — pesos mexicanos.</li>
-      <li>Cancelas cuando quieras, desde tu cuenta del App Store.</li>
-    </ul>
-    <a class="btn" href="https://apps.apple.com/app/cuadre-obra-precios-unitarios/id6800192272" target="_blank" rel="noopener">Descárgala en el App Store</a>
-    <p class="estado">Nacieron en la beta: explosión de insumos por avance, control insumo por insumo, programa de insumos en PDF y la plantilla de importación.</p>
+    <p class="kicker">Controla</p>
+    <h2 class="narrow">Tu dinero, en tiempo real.</h2>
+    <div class="fila rev" style="margin-top:40px">
+      <div class="txt">
+        <h3>Lo presupuestado contra lo real</h3>
+        <p>Mira el costo contra lo que de verdad gastaste, los ingresos contra lo que cobraste, y el resultado acumulado de cada proyecto — por categoría: material, mano de obra, herramienta y subcontrato. Sin abrir una hoja de cálculo.</p>
+      </div>
+      <div class="media"><div class="fono"><img src="img/p-control.jpg" alt="Control de obra: costo vs real, ingresos cobrados y resultado acumulado" loading="lazy"></div></div>
+    </div>
+    <div class="mini tres">
+      <figure>
+        <div class="fono"><img src="img/p-gasto.jpg" alt="Registrar un gasto con foto del ticket y factura" loading="lazy"></div>
+        <figcaption><div class="t">Un gasto en 20 segundos</div><div class="d">Con la foto del ticket o la factura. Cae en su proyecto, solo.</div></figcaption>
+      </figure>
+      <figure>
+        <div class="fono"><img src="img/p-gantt.jpg" alt="Programa de obra en vista Gantt con partidas y fechas" loading="lazy"></div>
+        <figcaption><div class="t">Tu programa, visual</div><div class="d">El Gantt de la obra con partidas, fechas y duración.</div></figcaption>
+      </figure>
+      <figure>
+        <div class="fono"><img src="img/p-suministros.jpg" alt="Programa de suministros de materiales con fechas y montos" loading="lazy"></div>
+        <figcaption><div class="t">Qué comprar y cuándo</div><div class="d">El programa de suministros de material y mano de obra.</div></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- 7 · FORMULARIO -->
-<section id="lista">
+<!-- DESCUBRE -->
+<section class="sec s-tinta">
+  <div class="wrap">
+    <p class="kicker">Descubre</p>
+    <h2 class="narrow">Lo que el tanteo nunca te dijo.</h2>
+    <div class="fila" style="margin-top:40px">
+      <div class="media"><div class="fono claro"><img src="img/p-avance.jpg" alt="Avance de obra con índices SPI y CPI: a tiempo y en costo" loading="lazy"></div></div>
+      <div class="txt">
+        <h3>¿Vas a tiempo? ¿Vas en costo?</h3>
+        <p>Cuadre compara tu avance contra tu programa y contra tu costo, y te lo dice en un número claro: si vas atrasado, y si estás gastando lo presupuestado o menos. Avisa a tiempo, mientras todavía puedes corregir.</p>
+      </div>
+    </div>
+    <div class="mini">
+      <figure>
+        <div class="fono claro"><img src="img/p-explosion.jpg" alt="Explosión de insumos por avance con costo de material y mano de obra" loading="lazy"></div>
+        <figcaption><div class="t">Insumo por insumo</div><div class="d">Qué llevas consumido según tu avance real, material por material.</div></figcaption>
+      </figure>
+      <figure>
+        <div class="fono claro"><img src="img/p-insumos.jpg" alt="Control de insumos con desviación: adelantado o rezagado contra el avance" loading="lazy"></div>
+        <figcaption><div class="t">Detecta la fuga a tiempo</div><div class="d">Compara lo comprado contra lo que tu avance pide. La merma se ve antes de que duela.</div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO TRABAJA -->
+<section class="sec s-salvia">
+  <div class="wrap narrow">
+    <h2>Hecha para la obra real.</h2>
+    <div class="valores">
+      <div class="valor"><strong>Te avisa, no te bloquea.</strong><span>La app informa; la última palabra es tuya. La obra no siempre cabe en el plan.</span></div>
+      <div class="valor"><strong>Tu número no se mueve solo.</strong><span>Lo cotizado queda congelado. Actualizar es una decisión, no un accidente.</span></div>
+      <div class="valor"><strong>De la obra a la oficina.</strong><span>Capturas en el iPhone donde ocurre el gasto; revisas en iPad o Mac. Todo sincronizado.</span></div>
+      <div class="valor"><strong>Tus datos son tuyos.</strong><span>Viven en tu propia cuenta de iCloud, no en nuestros servidores. Nosotros no los vemos.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section class="sec s-terra">
+  <div class="wrap narrow">
+    <h2>Pruébala completa, 14 días gratis.</h2>
+    <p class="lead" style="margin-top:14px">Descárgala en el App Store para iPhone, iPad y Mac. Nació en Excel, se afinó en obras reales, y hoy cotiza, controla y cierra proyectos de verdad.</p>
+    <div class="precio-grid">
+      <div class="plan"><div class="n">MENSUAL</div><div class="precio">$249<small> /mes</small></div><div class="ahorro">Flexible, mes con mes.</div></div>
+      <div class="plan"><div class="n">ANUAL</div><div class="precio">$1,999<small> /año</small></div><div class="ahorro">Ahorras 33% — menos de $167 al mes.</div></div>
+    </div>
+    <div style="margin-top:30px">
+      <a class="btn" href="https://apps.apple.com/app/cuadre-obra-precios-unitarios/id6800192272" target="_blank" rel="noopener">
+        <svg class="apple" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268c-.3-57 46.5-84.3 48.6-85.6-26.5-38.8-67.8-44.1-82.4-44.7-35.1-3.6-68.5 20.6-86.3 20.6-17.8 0-45.3-20.1-74.5-19.6-38.3.6-73.6 22.3-93.3 56.6-39.8 69-10.2 171.1 28.5 227.1 18.9 27.4 41.4 58.2 71 57 28.5-1.1 39.3-18.4 73.8-18.4s44.2 18.4 74.4 17.9c30.7-.5 50.2-27.9 69-55.4 21.7-31.6 30.6-62.2 31-63.8-.7-.3-59.5-22.8-59.8-90.3zM262.9 97.9c15.7-19 26.3-45.5 23.4-71.9-22.6.9-50 15.1-66.2 34-14.5 16.7-27.3 43.5-23.9 69.2 25.2 2 50.9-12.8 66.7-31.3z"/></svg>
+        Descárgala en el App Store
+      </a>
+      <p class="micro">Precios en pesos mexicanos. Cancelas cuando quieras, desde tu cuenta del App Store.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec s-crema">
+  <div class="wrap narrow">
+    <h2 style="margin-bottom:22px">Preguntas frecuentes</h2>
+    <details><summary>¿Es un programa de contabilidad?</summary><div class="resp">No. Cuadre no sustituye a tu contador ni lleva nómina fiscal. Lo suyo es el dinero de tus proyectos: costos, cotizaciones, gastos, ingresos y lo que te dejó cada uno. Tu contador se encarga de los impuestos; Cuadre, de que sepas si ganaste.</div></details>
+    <details><summary>¿Tengo que capturar todo mi negocio para empezar?</summary><div class="resp">No. Importas tu lista de materiales (o capturas los primeros a mano), armas tu primera tarjeta de precio y sacas tu primera cotización el mismo día.</div></details>
+    <details><summary>¿Hay versión para Android o Windows?</summary><div class="resp">Hoy Cuadre es para iPhone, iPad y Mac. Preferimos hacer una plataforma muy bien que dos a medias.</div></details>
+    <details><summary>¿Cuánto cuesta después de la prueba?</summary><div class="resp">$249 al mes o $1,999 al año, en pesos mexicanos, con 14 días de prueba gratis para conocerla completa. Menos de lo que cuesta un solo error de cotización.</div></details>
+    <details><summary>¿Mis datos están seguros?</summary><div class="resp">Sí. Viven en tu propia cuenta de iCloud, sincronizados entre tus dispositivos. No pasan por nuestros servidores y nosotros no los vemos.</div></details>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="sec s-marfil" id="lista">
   <div class="wrap">
     <div id="mlb2-45555111" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45555111">
       <div class="caja row-form">
-        <h2>Recibe las novedades</h2>
-        <p class="lead">Novedades de CUADRE y consejos para cotizar mejor — de vez en cuando y sin spam.</p>
+        <h2>¿Todavía no te animas?</h2>
+        <p class="lead">Déjanos tu correo y te mandamos novedades de Cuadre y consejos para cotizar mejor — de vez en cuando y sin spam.</p>
         <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2614476/forms/197644859884963153/subscribe" data-code="" method="post" target="_blank">
           <div class="ml-form-formContent">
             <div class="ml-form-fieldRow">
@@ -332,10 +421,7 @@ src="https://www.facebook.com/tr?id=2051416758821530&ev=PageView&noscript=1"
           <input type="hidden" name="ml-submit" value="1">
           <div class="ml-form-embedSubmit">
             <button type="submit" class="btn primary">Apuntarme</button>
-            <button disabled="disabled" style="display:none" type="button" class="btn loading">
-              <div class="ml-form-embedSubmitLoad"></div>
-              <span class="sr-only">Enviando…</span>
-            </button>
+            <button disabled="disabled" style="display:none" type="button" class="btn loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Enviando…</span></button>
           </div>
           <input type="hidden" name="anticsrf" value="true">
         </form>
@@ -348,37 +434,10 @@ src="https://www.facebook.com/tr?id=2051416758821530&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- 8 · FAQ -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="eyebrow">Preguntas frecuentes</div>
-    <details>
-      <summary>¿Cuándo estará disponible?</summary>
-      <p>Ya está disponible. Descárgala en el <a href="https://apps.apple.com/app/cuadre-obra-precios-unitarios/id6800192272" target="_blank" rel="noopener" style="color:var(--terracota-osc);font-weight:700">App Store</a> para iPhone, iPad y Mac — disponible en México.</p>
-    </details>
-    <details>
-      <summary>¿Cuánto va a costar?</summary>
-      <p>Por suscripción: $249 al mes o $1,999 al año, en pesos mexicanos, con 14 días de prueba gratis para conocerla completa. Menos de lo que cuesta un solo error de cotización.</p>
-    </details>
-    <details>
-      <summary>¿Hay versión para Android o Windows?</summary>
-      <p>Hoy Cuadre es para iPhone, iPad y Mac. Preferimos hacer una plataforma muy bien que dos a medias. Si eso cambia, los de la lista lo sabrán primero.</p>
-    </details>
-    <details>
-      <summary>¿Es un programa de contabilidad?</summary>
-      <p>No. Cuadre no sustituye a tu contador ni lleva nómina fiscal. Lo suyo es el dinero de tus proyectos: costos, cotizaciones, gastos, ingresos y lo que te dejó cada uno. Tu contador se encarga de los impuestos; Cuadre, de que sepas si ganaste.</p>
-    </details>
-    <details>
-      <summary>¿Tengo que capturar todo mi negocio para empezar?</summary>
-      <p>No. Importas tu lista de materiales (o capturas los primeros a mano), armas tu primera tarjeta de precio y sacas tu primera cotización el mismo día.</p>
-    </details>
-  </div>
-</section>
-
-<!-- 9 · FOOTER -->
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <img src="isotipo-sobretinta.png" alt="" style="height:42px;width:auto;display:block;margin-bottom:18px">
+    <img class="iso" src="img/isotipo-sobretinta.png" alt="">
     <p class="cierre">Cuando el número cuadra, tú duermes tranquilo.</p>
     <div class="footlinks">
       <a href="mailto:contacto@hazquecuadre.com">contacto@hazquecuadre.com</a>
@@ -398,9 +457,6 @@ src="https://www.facebook.com/tr?id=2051416758821530&ev=PageView&noscript=1"
   }
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
-<script>
-  fetch("https://assets.mailerlite.com/jsonp/2614476/forms/197644859884963153/takel")
-</script>
-
+<script>fetch("https://assets.mailerlite.com/jsonp/2614476/forms/197644859884963153/takel")</script>
 </body>
 </html>
